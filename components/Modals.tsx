@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { X, Clock, UtensilsCrossed, Sun, Droplets, Flower2, Languages, Calendar } from 'lucide-react';
 import { JournalEntry, staticText, uiLabels, images, assets } from '../data/journalData';
@@ -51,7 +52,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ onClose }) => {
            <X size={24} />
          </button>
 
-         <div className="overflow-y-auto p-8 md:p-12 scroll-smooth custom-scrollbar">
+         <div className="overflow-y-auto p-8 md:p-12 scroll-smooth hide-scrollbar">
             <div className="flex flex-col items-center text-center space-y-6">
                 <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-md sepia-[0.3]">
                     <img src={images.profile} alt="Profile" className="w-full h-full object-cover" />
