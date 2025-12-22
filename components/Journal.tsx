@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { assets, foodEntries, plantEntries, JournalEntry, staticText } from '../data/journalData';
 
@@ -8,11 +9,9 @@ import EntryList from './EntryList';
 import Newsletter from './Newsletter';
 import Footer from './Footer';
 import FloatingContact from './FloatingContact';
-import MenuOverlay from './MenuOverlay';
 import { AboutModal, EntryModal } from './Modals';
 
 const Journal: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [selectedEntry, setSelectedEntry] = useState<JournalEntry | null>(null);
   const [showAbout, setShowAbout] = useState(false);
 
@@ -57,7 +56,7 @@ const Journal: React.FC = () => {
            style={{ backgroundImage: assets.noiseTexture }}>
       </div>
 
-      <Header onMenuOpen={() => setMenuOpen(true)} />
+      <Header />
 
       <Hero onNavigate={scrollToSection} />
 
@@ -85,7 +84,6 @@ const Journal: React.FC = () => {
       <Footer />
       <FloatingContact />
 
-      {menuOpen && <MenuOverlay onClose={() => setMenuOpen(false)} />}
       {showAbout && <AboutModal onClose={() => setShowAbout(false)} />}
       {selectedEntry && <EntryModal entry={selectedEntry} onClose={() => setSelectedEntry(null)} />}
 

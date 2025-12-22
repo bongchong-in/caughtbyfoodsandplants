@@ -1,12 +1,8 @@
+
 import React, { useState, useEffect, memo } from 'react';
-import { Menu } from 'lucide-react';
-import { staticText, uiLabels } from '../data/journalData';
+import { staticText } from '../data/journalData';
 
-interface HeaderProps {
-  onMenuOpen: () => void;
-}
-
-const Header: React.FC<HeaderProps> = memo(({ onMenuOpen }) => {
+const Header: React.FC = memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,15 +22,6 @@ const Header: React.FC<HeaderProps> = memo(({ onMenuOpen }) => {
       <div className="text-2xl md:text-3xl font-bold tracking-wide" style={{ fontFamily: 'Crimson Text, serif' }}>
         {staticText.header}
       </div>
-      <button 
-        onClick={onMenuOpen} 
-        className="group flex items-center gap-2 text-sm transition-colors"
-      >
-        <span className="uppercase tracking-widest text-xs font-bold opacity-70 group-hover:text-[#b0893e]">{uiLabels.menuIndex}</span> 
-        <div className={`p-2 border border-[#3c2f2f]/20 rounded-full transition-all ${isScrolled ? 'bg-transparent' : 'bg-[#f2ebe0]/50 backdrop-blur-sm'} group-hover:border-[#b0893e] group-hover:text-[#b0893e]`}>
-           <Menu size={20} />
-        </div>
-      </button>
     </nav>
   );
 });
